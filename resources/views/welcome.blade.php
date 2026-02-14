@@ -380,18 +380,18 @@
 
         /* Features Grid */
         .features-section {
-            padding: 80px 0;
+            padding: 100px 0;
             border-top: 1px solid var(--border-color);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-header h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -444,83 +444,293 @@
             margin-bottom: 0;
         }
 
-        /* Legal Section */
-        .legal-section {
-            padding: 80px 0;
+        /* Terms Section */
+        .terms-section {
+            padding: 100px 0;
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
         }
 
-        .legal-card {
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .term-item {
             background: var(--bg-elevated);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 2rem;
-            height: 100%;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .legal-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .term-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--theme-color) 0%, var(--accent-pink) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .term-item:hover {
+            border-color: var(--theme-color);
+            transform: translateX(5px);
+        }
+
+        .term-item:hover::before {
+            opacity: 1;
+        }
+
+        .term-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-        }
-
-        .legal-card h4 i {
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
             color: var(--theme-color);
-        }
-
-        .legal-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
             margin-bottom: 1rem;
         }
 
-        .legal-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .term-item h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
-        .legal-card ul li {
-            color: var(--text-secondary);
+        .term-item p {
+            color: var(--text-muted);
             font-size: 0.9rem;
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Privacy Section */
+        .privacy-section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .privacy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .privacy-visual {
             position: relative;
         }
 
-        .legal-card ul li::before {
+        .privacy-lock {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .privacy-lock::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background: var(--theme-color);
-            border-radius: 50%;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--theme-color) 0%, var(--accent-pink) 100%);
+            border-radius: 32px;
+            z-index: -1;
+            opacity: 0.5;
         }
 
-        .btn-legal {
+        .privacy-lock i {
+            font-size: 6rem;
+            background: linear-gradient(135deg, var(--theme-color) 0%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .privacy-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .privacy-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .privacy-point-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--theme-color);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .privacy-point h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .privacy-point p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Members Section */
+        .members-section {
+            padding: 100px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .members-marquee {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .members-marquee::before,
+        .members-marquee::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .members-marquee::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--bg-card) 0%, transparent 100%);
+        }
+
+        .members-marquee::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--bg-card) 0%, transparent 100%);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .member-card {
+            flex-shrink: 0;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            border-color: var(--theme-color);
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--theme-color) 0%, var(--accent-pink) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .member-card h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        .member-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.25rem;
+            background: rgba(139, 92, 246, 0.1);
             color: var(--theme-color);
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: gap 0.3s;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            margin-top: 0.75rem;
         }
 
-        .btn-legal:hover {
-            gap: 0.75rem;
-            color: var(--theme-color);
+        .members-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .member-stat {
+            text-align: center;
+        }
+
+        .member-stat h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--theme-color) 0%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-stat p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
         }
 
         /* Footer */
@@ -662,88 +872,6 @@
             line-height: 1.6;
         }
 
-        /* Modal Styles */
-        .modal-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            color: var(--text-primary);
-        }
-
-        .modal-header {
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem;
-        }
-
-        .modal-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-        }
-
-        .modal-body {
-            padding: 1.5rem;
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-
-        .modal-body h6 {
-            color: var(--theme-color);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .modal-body h6:first-child {
-            margin-top: 0;
-        }
-
-        .modal-body p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .modal-footer {
-            border-top: 1px solid var(--border-color);
-            padding: 1rem 1.5rem;
-        }
-
-        .btn-close {
-            filter: invert(1);
-            opacity: 0.5;
-        }
-
-        .btn-close:hover {
-            opacity: 1;
-        }
-
-        .btn-secondary {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border-color);
-            color: var(--text-primary);
-        }
-
-        /* Scrollbar */
-        .modal-body::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .modal-body::-webkit-scrollbar-track {
-            background: var(--bg-elevated);
-            border-radius: 3px;
-        }
-
-        .modal-body::-webkit-scrollbar-thumb {
-            background: var(--theme-color);
-            border-radius: 3px;
-        }
-
         /* Loading Spinner */
         .spinner {
             display: inline-block;
@@ -770,6 +898,24 @@
             .form-card {
                 margin-top: 2rem;
             }
+
+            .privacy-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .privacy-visual {
+                order: -1;
+            }
+
+            .privacy-lock {
+                width: 200px;
+                height: 200px;
+            }
+
+            .privacy-lock i {
+                font-size: 4rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -779,6 +925,11 @@
 
             .section-header h2 {
                 font-size: 1.75rem;
+            }
+
+            .members-stats {
+                flex-direction: column;
+                gap: 2rem;
             }
 
             .footer-bottom {
@@ -801,7 +952,8 @@
             <a class="navbar-brand" href="#">Mush<span>.AI</span></a>
             <div class="d-flex align-items-center gap-3">
                 <a href="#features" class="nav-link d-none d-md-block">Features</a>
-                <a href="#legal" class="nav-link d-none d-md-block">Legal</a>
+                <a href="#terms" class="nav-link d-none d-md-block">Terms</a>
+                <a href="#privacy" class="nav-link d-none d-md-block">Privacy</a>
                 <a href="#waitlist" class="btn-nav">Join Waitlist</a>
             </div>
         </div>
@@ -918,8 +1070,8 @@
                                         {{ old('terms') ? 'checked' : '' }}
                                     >
                                     <label for="terms" class="form-check-label">
-                                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a> and 
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+                                        I agree to the <a href="#terms">Terms of Service</a> and 
+                                        <a href="#privacy">Privacy Policy</a>
                                     </label>
                                 </div>
                                 @error('terms')
@@ -976,45 +1128,157 @@
         </div>
     </section>
 
-    <!-- Legal Section -->
-    <section class="legal-section" id="legal">
+    <!-- Terms of Service Section -->
+    <section class="terms-section" id="terms">
         <div class="container">
             <div class="section-header">
-                <h2>Legal Information</h2>
-                <p>Transparency and trust are at the core of everything we do</p>
+                <h2>Terms of Service</h2>
+                <p>Clear and transparent guidelines for using our platform</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="legal-card">
-                        <h4><i class="bi bi-file-text"></i> Terms of Service</h4>
-                        <p>By joining our waiting list, you agree to our terms of service which outline your rights and responsibilities as a user.</p>
-                        <ul>
-                            <li>Acceptance of service terms</li>
-                            <li>User registration requirements</li>
-                            <li>Privacy and data protection</li>
-                            <li>Communication consent</li>
-                            <li>Limitation of liability</li>
-                        </ul>
-                        <a href="#" class="btn-legal" data-bs-toggle="modal" data-bs-target="#termsModal">
-                            Read Full Terms <i class="bi bi-arrow-right"></i>
-                        </a>
+            <div class="terms-grid">
+                <div class="term-item">
+                    <div class="term-number">01</div>
+                    <h5>Acceptance of Terms</h5>
+                    <p>By accessing our waiting list and services, you agree to be bound by these terms and conditions.</p>
+                </div>
+                <div class="term-item">
+                    <div class="term-number">02</div>
+                    <h5>Service Description</h5>
+                    <p>Mush.AI provides AI solutions. The waiting list registers interest for early platform access.</p>
+                </div>
+                <div class="term-item">
+                    <div class="term-number">03</div>
+                    <h5>User Registration</h5>
+                    <p>Provide accurate information when joining. You're responsible for maintaining account confidentiality.</p>
+                </div>
+                <div class="term-item">
+                    <div class="term-number">04</div>
+                    <h5>Communication</h5>
+                    <p>By joining, you consent to receive updates about product launches and promotional materials.</p>
+                </div>
+                <div class="term-item">
+                    <div class="term-number">05</div>
+                    <h5>Privacy Protection</h5>
+                    <p>Your privacy matters. We collect and use data as outlined in our Privacy Policy.</p>
+                </div>
+                <div class="term-item">
+                    <div class="term-number">06</div>
+                    <h5>Limitation of Liability</h5>
+                    <p>Mush.AI is not liable for indirect damages from using our services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section class="privacy-section" id="privacy">
+        <div class="container">
+            <div class="section-header">
+                <h2>Privacy Policy</h2>
+                <p>How we protect and handle your personal information</p>
+            </div>
+            <div class="privacy-content">
+                <div class="privacy-visual">
+                    <div class="privacy-lock">
+                        <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="legal-card">
-                        <h4><i class="bi bi-shield-lock"></i> Privacy Policy</h4>
-                        <p>We are committed to protecting your privacy. Learn how we collect, use, and safeguard your personal information.</p>
-                        <ul>
-                            <li>Information we collect</li>
-                            <li>How we use your data</li>
-                            <li>Data security measures</li>
-                            <li>Your privacy rights</li>
-                            <li>Third-party services</li>
-                        </ul>
-                        <a href="#" class="btn-legal" data-bs-toggle="modal" data-bs-target="#privacyModal">
-                            Read Full Policy <i class="bi bi-arrow-right"></i>
-                        </a>
+                <div class="privacy-points">
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">
+                            <i class="bi bi-person-vcard"></i>
+                        </div>
+                        <div>
+                            <h5>Information Collection</h5>
+                            <p>We collect your name, email, and optional phone number when you join our waiting list.</p>
+                        </div>
                     </div>
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">
+                            <i class="bi bi-envelope-check"></i>
+                        </div>
+                        <div>
+                            <h5>How We Use Data</h5>
+                            <p>To communicate about Mush.AI updates, launch notifications, and relevant promotions.</p>
+                        </div>
+                    </div>
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">
+                            <i class="bi bi-shield-shaded"></i>
+                        </div>
+                        <div>
+                            <h5>Data Security</h5>
+                            <p>Enterprise-grade security measures protect your information from unauthorized access.</p>
+                        </div>
+                    </div>
+                    <div class="privacy-point">
+                        <div class="privacy-point-icon">
+                            <i class="bi bi-hand-thumbs-up"></i>
+                        </div>
+                        <div>
+                            <h5>Your Rights</h5>
+                            <p>Access, correct, or delete your data anytime. Opt out of communications when you choose.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joined Members Section -->
+    <section class="members-section" id="members">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join the Community</h2>
+                <p>See who's already on board for the AI revolution</p>
+            </div>
+            <div class="members-marquee">
+                <div class="marquee-track">
+                    @php
+                        $members = [
+                            ['name' => 'Sarah Chen', 'role' => 'Tech Entrepreneur', 'initial' => 'SC'],
+                            ['name' => 'Marcus Johnson', 'role' => 'AI Researcher', 'initial' => 'MJ'],
+                            ['name' => 'Emily Rodriguez', 'role' => 'Product Manager', 'initial' => 'ER'],
+                            ['name' => 'David Kim', 'role' => 'Software Engineer', 'initial' => 'DK'],
+                            ['name' => 'Lisa Thompson', 'role' => 'Data Scientist', 'initial' => 'LT'],
+                            ['name' => 'James Wilson', 'role' => 'Startup Founder', 'initial' => 'JW'],
+                            ['name' => 'Anna Petrov', 'role' => 'UX Designer', 'initial' => 'AP'],
+                            ['name' => 'Michael Brown', 'role' => 'CTO', 'initial' => 'MB'],
+                        ];
+                    @endphp
+                    
+                    @foreach($members as $member)
+                        <div class="member-card">
+                            <div class="member-avatar">{{ $member['initial'] }}</div>
+                            <h5>{{ $member['name'] }}</h5>
+                            <p>{{ $member['role'] }}</p>
+                            <span class="member-badge"><i class="bi bi-check-circle-fill"></i> Joined</span>
+                        </div>
+                    @endforeach
+                    
+                    @foreach($members as $member)
+                        <div class="member-card">
+                            <div class="member-avatar">{{ $member['initial'] }}</div>
+                            <h5>{{ $member['name'] }}</h5>
+                            <p>{{ $member['role'] }}</p>
+                            <span class="member-badge"><i class="bi bi-check-circle-fill"></i> Joined</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            <div class="members-stats">
+                <div class="member-stat">
+                    <h3>12,847</h3>
+                    <p>Total Members</p>
+                </div>
+                <div class="member-stat">
+                    <h3>156</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="member-stat">
+                    <h3>4.9</h3>
+                    <p>Avg. Rating</p>
                 </div>
             </div>
         </div>
@@ -1036,7 +1300,7 @@
                         <ul>
                             <li><a href="#features">Features</a></li>
                             <li><a href="#waitlist">Waitlist</a></li>
-                            <li><a href="#">Roadmap</a></li>
+                            <li><a href="#members">Community</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1054,9 +1318,9 @@
                     <div class="footer-links">
                         <h5>Legal</h5>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+                            <li><a href="#terms">Terms</a></li>
+                            <li><a href="#privacy">Privacy</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1072,128 +1336,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Terms of Service Modal -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Terms of Service</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>1. Acceptance of Terms</h6>
-                    <p>By accessing and using Mush.AI's waiting list and services, you accept and agree to be bound by the terms and provisions of this agreement.</p>
-
-                    <h6>2. Description of Service</h6>
-                    <p>Mush.AI provides artificial intelligence solutions and related services. The waiting list allows users to register their interest for early access to our platform.</p>
-
-                    <h6>3. User Registration</h6>
-                    <p>To join the waiting list, you must provide accurate and complete information. You are responsible for maintaining the confidentiality of your account information.</p>
-
-                    <h6>4. Privacy</h6>
-                    <p>Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your personal information.</p>
-
-                    <h6>5. Communication</h6>
-                    <p>By joining the waiting list, you consent to receive communications from Mush.AI regarding product updates, launch notifications, and promotional materials.</p>
-
-                    <h6>6. Limitation of Liability</h6>
-                    <p>Mush.AI shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services.</p>
-
-                    <h6>7. Changes to Terms</h6>
-                    <p>We reserve the right to modify these terms at any time. Continued use of our services after changes constitutes acceptance of the new terms.</p>
-
-                    <h6>8. Contact Information</h6>
-                    <p>For questions about these Terms of Service, please contact us through the Contact Us section.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Privacy Policy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>1. Information We Collect</h6>
-                    <p>We collect information you provide directly to us, including your name, email address, and optionally your phone number when you join our waiting list.</p>
-
-                    <h6>2. How We Use Your Information</h6>
-                    <p>We use the information we collect to communicate with you about Mush.AI, provide updates on our launch, and send promotional materials about our products and services.</p>
-
-                    <h6>3. Information Sharing</h6>
-                    <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as required by law.</p>
-
-                    <h6>4. Data Security</h6>
-                    <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
-
-                    <h6>5. Your Rights</h6>
-                    <p>You have the right to access, correct, or delete your personal information. You may also opt out of receiving communications from us at any time.</p>
-
-                    <h6>6. Cookies and Tracking</h6>
-                    <p>We may use cookies and similar tracking technologies to enhance your experience and collect information about how you use our website.</p>
-
-                    <h6>7. Third-Party Services</h6>
-                    <p>We may use third-party services to help us operate our business and the website. These services have access to your information only to perform specific tasks on our behalf.</p>
-
-                    <h6>8. Changes to This Policy</h6>
-                    <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
-
-                    <h6>9. Contact Us</h6>
-                    <p>If you have any questions about this Privacy Policy, please contact us through the Contact Us section.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Us Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Contact Us</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Have questions or need assistance? We'd love to hear from you.</p>
-                    
-                    <div class="mb-3">
-                        <h6 style="color: var(--theme-color); font-size: 0.9rem; margin-bottom: 0.5rem;">
-                            <i class="bi bi-envelope"></i> Email
-                        </h6>
-                        <p style="margin-bottom: 0;">support@mush.ai</p>
-                    </div>
-
-                    <div class="mb-3">
-                        <h6 style="color: var(--theme-color); font-size: 0.9rem; margin-bottom: 0.5rem;">
-                            <i class="bi bi-geo-alt"></i> Address
-                        </h6>
-                        <p style="margin-bottom: 0;">123 Innovation Drive<br>Tech City, TC 12345</p>
-                    </div>
-
-                    <div>
-                        <h6 style="color: var(--theme-color); font-size: 0.9rem; margin-bottom: 0.5rem;">
-                            <i class="bi bi-clock"></i> Business Hours
-                        </h6>
-                        <p style="margin-bottom: 0;">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
